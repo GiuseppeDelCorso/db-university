@@ -1,0 +1,87 @@
+Esercizio 1/10/2024
+1
+SELECT *
+FROM `students`
+WHERE YEAR(`date_of_birth`) = 1990
+
+2 
+SELECT *
+FROM `courses`
+WHERE `cfu` > 10
+
+3 
+SELECT *
+FROM `students`
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30
+
+4 
+SELECT *
+FROM `courses`
+WHERE `period` = 'I semestre'
+AND `year` = 1
+
+5
+SELECT *
+FROM `exams`
+WHERE `date` = '2020-06-20'
+AND HOUR(`hour`) >= 14
+
+6
+SELECT *
+FROM `degrees`
+WHERE `level` = 'magistrale'
+
+
+
+
+
+
+
+
+
+
+Esercizio 1/11/2024 (JOIN)
+
+1
+SELECT students.name, students.surname, degrees.name
+FROM students
+JOIN degrees
+ON students.degree_id = degrees.id;
+
+2
+SELECT *
+FROM degrees
+JOIN departments
+ON department_id
+WHERE level = 'magistrale' AND departments.name = 'Dipartimento di Neuroscienze';
+
+3
+SELECT teachers.name, degrees.name
+FROM degrees
+JOIN teachers
+ON teachers.id = 44;
+
+4
+SELECT students.name, degrees.name, departments.name
+FROM students 
+JOIN degrees
+ON degrees.id
+JOIN departments
+ON departments.id;
+
+5
+SELECT degrees.name, courses.name, teachers.name
+FROM degrees
+JOIN courses
+ON courses.id
+JOIN teachers
+ON teachers.id;
+
+6
+SELECT teachers.name, departments.name
+FROM teachers
+JOIN departments
+ON departments.id
+WHERE departments.name = 'Dipartimento di Matematica';
+
+
